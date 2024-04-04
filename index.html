@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page">
+        <!-- Main content -->
+        <section class="container">
+            <nav class="navbar">
+                <div class="navbar__content">
+                    <img src="https://i.ibb.co/MMmDPXN/lego.png" alt="">
+                    <ul>
+                        <li><a href="">Exclusivos</a></li>
+                        <li><a href="">Nuevos</a></li>
+                        <li><a href="">Gift Cards</a></li>
+                        <li><a href="">Find a store</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <section class="main-content">
+                <p>Diseña tu</p>
+                <h1>Super Heroe</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum praesentium tempora, voluptas ratione obcaecati distinctio! Sapiente nobis rerum nemo repellendus?</p>
+            </section>
+
+            <section class="side-content">
+                <p>Superman</p>
+                <img src="https://i.ibb.co/x16pz1x/super-man.png" alt="">
+                <div></div>
+            </section>
+
+            <section class="footer">
+                <div id="button1">
+                    <img src=https://i.pinimg.com/originals/07/fa/57/07fa57f216603842f41fc714350cc1e3.png alt="">
+                </div>
+                <div id="button1">
+                    <img src="https://i.pinimg.com/originals/53/fe/28/53fe28bf966e2e537e416786f2dae484.png" alt="">
+                </div>
+                <div id="button1">
+                    <img src="https://clipart.info/images/ccovers/1495576488Lego-Batman-Movie-Clipart-Png.png" alt="">
+                </div>
+            </section>
+        </section>
+        <!-- Loader -->
+        <section class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+        <!-- Modal -->
+        <section class="modal hidden">
+            <div class="modal-content">
+                <img class="modal-content--close" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-512.png" alt="">
+
+                <div class="modal-content--slider">
+                    <input type="radio" name="slider-1" class="hidden" id="radio-1" checked>
+                    <input type="radio" name="slider-1" class="hidden" id="radio-2">
+                    <input type="radio" name="slider-1" class="hidden" id="radio-3">
+
+                    <div class="cards">
+                        <label for="radio-1" class="card-1 card">
+                            <img src="https://pngfre.com/wp-content/uploads/hulk-poster.png" alt="hulk" class="hidden">
+                            <img src="https://static.fnac-static.com/multimedia/Images/3D/3D/BF/C6/13025085-3-1541-4/tsp20240105213758/LEGO-Marvel-Avengers-76140-Le-robot-d-Iron-Man.jpg" alt="ironman" class="hidden">
+                            <img src="https://i.ebayimg.com/images/g/yd0AAOSwXrleHDp3/s-l1200.webp" alt="batman1" class="hidden">
+                        </label>
+                        <label for="radio-2" class="card-2 card">
+                            <img src="https://i5.walmartimages.com/seo/LEGO-Marvel-Super-Heroes-Avengers-Hulk-Minifigure_daaf8e9c-3b7d-46aa-9e48-f875a3157af1.c90320689ab2e68a235673474ce37ff5.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" alt="hulk" class="hidden">
+                            <img src="https://www.lego.com/cdn/cs/set/assets/bltfd0a02fe95ebbe70/CP_IronMan_Sidekick-Tall2.jpg?fit=crop&format=jpg&quality=80&width=800&height=600&dpr=1" alt="ironman" class="hidden">
+                            <img src="https://media.carrefour.fr/medias/f9f481ae3fec3ed1b3a678c928695b54/p_1500x1500/05702017189703-c1c0-s01.jpg" alt="batman2" class="hidden">
+                        </label>
+                        <label for="radio-3" class="card-3 card">
+                            <img src="https://youget.pt/116902-large_default/lego-marvel-hulk-mech-armor-76241.jpg" alt="hulk" class="hidden">
+                            <img src="https://www.lego.com/cdn/product-assets/product.img.pri/76203_Prod.png" alt="ironman" class="hidden">
+                            <img src="https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Flego-batman%2FEGS_WB_LEGO_Batman_G1_1920x1080_19_0911-1920x1080-e166b698acbbbcdae1ff306198684d143828467c.jpg" alt="batman3" class="hidden">
+                        </label>
+                    </div>
+                    <button>LO QUIERO!!</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+    const modal = document.querySelector('.modal');
+    const heroes = document.querySelectorAll('#button1');
+    const close = document.querySelector('.modal-content--close')
+    const card = document.querySelectorAll('.card')
+
+    for (let i = 0; i < heroes.length; i++) {
+        heroes[i].addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('visible');
+
+        for (const img of card) {
+            img.children[i].classList.remove('hidden');
+        }
+
+        close.addEventListener('click', () => {
+        modal.classList.remove('visible');
+        modal.classList.add('hidden');
+        for (const img of card) {
+            img.children[i].classList.add('hidden');
+        }
+        
+        })
+
+    })
+    }
+
+    // for (const hero of heroes) {
+    //     hero.addEventListener('click', () => {
+    //     modal.classList.remove('hidden');
+    //     modal.classList.add('visible');
+    // })
+    // }
+
+    // close.addEventListener('click', () => {
+    //     modal.classList.remove('visible');
+    //     modal.classList.add('hidden');
+        
+    // })
+</script>
+</html>
